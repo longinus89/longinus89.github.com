@@ -2,6 +2,8 @@
 <script type="text/javascript">
     function checkCard(){
 
+        console.log("checkCard");
+
         $.ajax({
           url: "https://magictcgprices.appspot.com/api/images/imageurl.json?cardname=Pillar%20of%20Flame&cardset=fnmp",
           type: 'GET',
@@ -16,7 +18,7 @@
               xhr.setRequestHeader ("Authorization", "Basic " + btoa(""));
           },
           success: function (data){
-            console.log(response);
+            console.log(data);
           }
       })
 
