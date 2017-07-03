@@ -1,21 +1,24 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
     function checkCard(){
-        var form = $('#ajax-contact');
 
-        // Get the messages div.
-        var formMessages = $('#form-messages');
-
-        // Submit the form using AJAX.
         $.ajax({
-            type: 'GET',
-            url: "https://magictcgprices.appspot.com/api/images/imageurl.json?cardname=Pillar%20of%20Flame&cardset=fnmp",
-        }).done(function(response) {
-            // Make sure that the formMessages div has the 'success' class.
+          url: "https://magictcgprices.appspot.com/api/images/imageurl.json?cardname=Pillar%20of%20Flame&cardset=fnmp",
+          type: 'GET',
+          dataType: 'jsonp',
+          cors: true ,
+          contentType:'application/json',
+          secure: true,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                    },
+          beforeSend: function (xhr) {
+              xhr.setRequestHeader ("Authorization", "Basic " + btoa(""));
+          },
+          success: function (data){
             console.log(response);
-        }).fail(function(data) {
-           console.log(data);
-        });
+          }
+      })
 
     }
 
