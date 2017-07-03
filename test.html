@@ -4,7 +4,20 @@
 
         console.log("checkCard");
 
-        $.ajax({
+        var jqxhr = $.getJSON( "https://magictcgprices.appspot.com/api/images/imageurl.json?cardname=Pillar%20of%20Flame&cardset=fnmp", function(data) {
+          console.log(data);
+        })
+        .done(function(data) {
+        console.log(data);
+        })
+        .fail(function(data) {
+        console.log(data);
+        })
+        .always(function(data) {
+        console.log(data);
+        });
+
+        /*$.ajax({
           url: "https://magictcgprices.appspot.com/api/images/imageurl.json?cardname=Pillar%20of%20Flame&cardset=fnmp",
           type: 'GET',
           dataType: 'jsonp',
@@ -12,13 +25,10 @@
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
-          /*beforeSend: function (xhr) {
-              xhr.setRequestHeader ("Authorization", "Basic " + btoa(""));
-          },*/
           success: function (data){
             console.log(data[0]);
           }
-      })
+      })*/
 
     }
 
